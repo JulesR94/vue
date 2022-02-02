@@ -1,6 +1,13 @@
-const app4 = new Vue({
-    el: '#app1',
-    data: {
-        product: ['Boots','Shoes',"Jackets"]
-    }
+const app = new Vue({
+    el: '#app',
+    data : {
+        
+            products: []   
+    },
+    
+    mounted () {
+        axios
+          .get('products.json')
+          .then(response => (this.products = response.data.products))
+    } 
 })
